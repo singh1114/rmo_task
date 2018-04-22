@@ -1,0 +1,22 @@
+{
+  "name": "rmotask",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongodb": "^3.0.7",
+    "nodemon": "^1.17.3",
+    "request": "^2.85.0"
+  },
+  "devDependencies": {
+    "debug": "^3.1.0"
+  }
+}

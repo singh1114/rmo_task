@@ -3,6 +3,7 @@ const config = require('./config/config');
 const express = require('express');
 const MongoClient = require('mongodb').MongoClient;
 const routes = require('./api/routes');
+const tasks = require('./tasks/tasks')
 
 
 const app = express();
@@ -18,6 +19,7 @@ MongoClient.connect(config.url, (err, client) => {
 
     // routes
     routes(app, db)
+    tasks(app, db)
     app.listen(port, () => {
         console.log('We are live on port: ' + port);
     });

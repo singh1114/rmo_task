@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "agenda": "^1.0.3",
     "express": "^4.16.3",
     "mongodb": "^3.0.7",
     "nodemon": "^1.17.3",

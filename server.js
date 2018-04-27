@@ -5,7 +5,6 @@ const MongoClient = require('mongodb').MongoClient;
 const routes = require('./api/routes');
 const tasks = require('./tasks/tasks')
 
-
 const app = express();
 
 const port = 4000;
@@ -23,4 +22,5 @@ MongoClient.connect(config.url, (err, client) => {
     app.listen(port, () => {
         console.log('We are live on port: ' + port);
     });
+    app.set('view engine', 'pug');
 });

@@ -1,10 +1,10 @@
 const Agenda = require('agenda');
 const request = require('request');
 const mongoConnectionString = 'mongodb://127.0.0.1/agenda';
+const app = require('express');
 
 
 var agenda = new Agenda({db: {address: mongoConnectionString, collection: 'jobs'}});
-
 module.exports = function(app, db) {
   let database = db.collection('rmo_blog');
   agenda.define('pull_posts', (job, done) => {
@@ -16,7 +16,7 @@ module.exports = function(app, db) {
           if (err) throw err;
           else {
             if (item == null) {
-              database.insert(response_data)
+              database.insert(response_data);
             }
           }
         });
@@ -25,7 +25,7 @@ module.exports = function(app, db) {
   });
 
   agenda.on('ready', function () {
-      agenda.every('* */4 * * * *', '');
+      agenda.every('* */4 * * * *', 'pull_posts');
       agenda.start();
   });
 };
